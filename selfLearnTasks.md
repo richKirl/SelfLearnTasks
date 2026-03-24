@@ -45,7 +45,7 @@ C++ 23/26 или Java 25/26
 
 ИНСТРУМЕНТАРИЙ ДЛЯ OPENSUSE TUMBLEWEED
 --------------------------------------
-- Компиляторы: GCC 14+ / Clang 18+ (всегда свежие в Tumbleweed).
+- Компиляторы: GCC 14+ / Clang 18+ .
 - Сборка: CMake (стандарт индустрии).
 - IDE: CLion, VS Code или IntelliJ IDEA (для Java).
 - Отладка: GDB / Valgrind (поиск утечек памяти в C++).
