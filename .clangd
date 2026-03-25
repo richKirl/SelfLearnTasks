@@ -1,0 +1,9 @@
+CompileFlags:
+  Add:
+    [
+      -std=c++2c,
+      -stdlib=libc++,
+      -I/usr/lib/llvm-20/share/libc++/v1,
+      -fmodule-file=std=std.pcm,
+      -fmodule-file=base2D=base2D.pcm,
+    ]
