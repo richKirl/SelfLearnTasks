@@ -1,6 +1,6 @@
 import std;//clang++-20 -std=c++23 -stdlib=libc++ --precompile -o std.pcm /usr/lib/llvm-20/share/libc++/v1/std.cppm
 import base2D;
-//clang++-20 -std=c++23 -stdlib=libc++ -fmodule-file=std=std.pcm main.cpp -o app -lSDL2
+//clang++-20 -std=c++23 -stdlib=libc++ -fmodule-file=std=std.pcm main.cpp -o app -lSDL2!readbase2D
 
 static constexpr std::string_view SUIT_NAMES[] = {"Hearts", "Diamonds", "Clubs", "Spades"};//0 1 2 3
 static constexpr std::string_view COLOR_NAMES[] = {"Red", "Black"};//0 1
