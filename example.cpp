@@ -1,6 +1,6 @@
-import std;
+import std;//clang++-20 -std=c++23 -stdlib=libc++ --precompile -o std.pcm /usr/lib/llvm-20/share/libc++/v1/std.cppm
 #include <SDL2/SDL.h>
-
+//clang++-20 -std=c++23 -stdlib=libc++ -fmodule-file=std=std.pcm main.cpp -o app -lSDL2
 static constexpr std::string_view SUIT_NAMES[] = {"Hearts", "Diamonds", "Clubs", "Spades"};//0 1 2 3
 static constexpr std::string_view COLOR_NAMES[] = {"Red", "Black"};//0 1
 static constexpr std::string_view FACE_NAMES[] = {"Ace","Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten","Jack","Queen","King"};//1 2 3 .. 14
