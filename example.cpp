@@ -1,6 +1,11 @@
 import std;//clang++-20 -std=c++23 -stdlib=libc++ --precompile -o std.pcm /usr/lib/llvm-20/share/libc++/v1/std.cppm
 #include <SDL2/SDL.h>
 //clang++-20 -std=c++23 -stdlib=libc++ -fmodule-file=std=std.pcm main.cpp -o app -lSDL2
+struct Options{
+    std::string_view name="Test";
+    int posx=SDL_WINDOWPOS_CENTERED,posy=SDL_WINDOWPOS_CENTERED,width=1290,height=720,index=-1;
+    uint32_t window_flags=SDL_WINDOW_ALLOW_HIGHDPI|SDL_WINDOW_RESIZABLE,render_flags=SDL_RENDERER_ACCELERATED,sdl_init=SDL_INIT_VIDEO;
+};
 static constexpr std::string_view SUIT_NAMES[] = {"Hearts", "Diamonds", "Clubs", "Spades"};//0 1 2 3
 static constexpr std::string_view COLOR_NAMES[] = {"Red", "Black"};//0 1
 static constexpr std::string_view FACE_NAMES[] = {"Ace","Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten","Jack","Queen","King"};//1 2 3 .. 14
@@ -52,8 +57,9 @@ void print(const std::vector<Card> &deck){
 }
 
 struct StateApp{
-    SDL_Window* window=0;
-    SDL_Renderer* render=0;
+    Options default_options;
+    SDL_Window* window=nullptr;
+    SDL_Renderer* render=nullptr;
     bool run=false;
     ~StateApp(){
         SDL_DestroyWindow(window);
@@ -62,9 +68,15 @@ struct StateApp{
 };
 
 void initApp(StateApp &app){
-    SDL_Init(SDL_INIT_VIDEO);
-    app.window=SDL_CreateWindow("Test", SDL_WINDOWPOS_CENTERED,SDL_WINDOWPOS_CENTERED, 1290, 720, SDL_WINDOW_ALLOW_HIGHDPI|SDL_WINDOW_RESIZABLE);
-    app.render=SDL_CreateRenderer(app.window, -1, SDL_RENDERER_ACCELERATED);
+    SDL_Init(app.default_options.sdl_init);
+    app.window=SDL_CreateWindow(
+        app.default_options.name.data(),
+        app.default_options.posx,
+        app.default_options.posy,
+        app.default_options.width,
+        app.default_options.height,
+        app.default_options.window_flags);
+    app.render=SDL_CreateRenderer(app.window,app.default_options.index,app.default_options.render_flags);
     app.run=true;
 }
 
