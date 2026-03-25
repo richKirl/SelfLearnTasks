@@ -1,4 +1,5 @@
 # SelfLearnTasks
 SelfLearnTasks
 
-<img width="758" height="616" alt="image" src="https://github.com/user-attachments/assets/f539e8b0-f56e-4624-9568-b3af59417100" />
+<img width="799" height="607" alt="image" src="https://github.com/user-attachments/assets/82f7ee55-1d17-45ee-b690-ee9639d4dbfb" />
+
