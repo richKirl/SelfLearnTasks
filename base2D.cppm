@@ -10,7 +10,7 @@ export module base2D;
 export struct Options{
     std::string_view name="Test";
     int posx=SDL_WINDOWPOS_CENTERED,posy=SDL_WINDOWPOS_CENTERED,width=1290,height=720,index=-1;
-    uint32_t window_flags=SDL_WINDOW_ALLOW_HIGHDPI|SDL_WINDOW_RESIZABLE,render_flags=SDL_RENDERER_ACCELERATED,sdl_init=SDL_INIT_VIDEO;
+    uint32_t window_flags=SDL_WINDOW_ALLOW_HIGHDPI|SDL_WINDOW_RESIZABLE,render_flags=SDL_RENDERER_ACCELERATED|SDL_RENDERER_PRESENTVSYNC,sdl_init=SDL_INIT_VIDEO;
 };
 // Теперь экспортируем нужные функции или структуры
 export using SDL_Event = ::SDL_Event; // Экспортируем тип из глобального пространства
