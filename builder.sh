@@ -3,8 +3,8 @@
 # Настройки компилятора
 CXX="clang++-20"
 STD="-std=c++23"
-STDLIB="-stdlib=libc++"
-LIBS="-lSDL2"
+STDLIB="-stdlib=libc++ -Wno-unused-command-line-argument"
+LIBS="-lSDL2 -lSDL2_image"
 MOD_EXT="cppm"
 
 # Путь к системному модулю std (может меняться в зависимости от дистрибутива)
@@ -23,7 +23,7 @@ build_module() {
     local file=$1
     local name=$(basename "$file" .$MOD_EXT)
     echo "--- Сборка модуля: $name ---"
-    
+
     # При сборке своих модулей тоже указываем путь к std.pcm
     $CXX $STD $STDLIB -fmodule-file=std=std.pcm --precompile "$file" -o "$name.pcm"
     $CXX $STD $STDLIB -c "$name.pcm" -o "$name.o"
@@ -32,11 +32,11 @@ build_module() {
 build_project() {
     echo "--- Финальная сборка проекта ---"
     local modules_objs=$(ls *.o 2>/dev/null | grep -v "std.o") # std.o обычно не нужен, если есть pcm
-    
+
     # -fmodule-file=std=std.pcm говорит компилятору, где искать 'import std'
     $CXX $STD $STDLIB -fmodule-file=std=std.pcm -fprebuilt-module-path=. \
          main.cpp $modules_objs $LIBS -o app
-    
+
     if [ $? -eq 0 ]; then echo "Готово! Запуск: ./app"; fi
 }
 
