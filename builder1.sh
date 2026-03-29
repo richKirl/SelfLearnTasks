@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Настройки те же
+# Настройка
 CXX="clang++-20"
 STD="-std=c++23"
 STDLIB="-stdlib=libc++ -Wno-unused-command-line-argument"
