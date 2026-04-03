@@ -6,7 +6,7 @@ SelfLearnTasks
 <img width="1318" height="786" alt="image" src="https://github.com/user-attachments/assets/9ce459ae-d010-4779-bd97-d794bed8581c" />
 
 <img width="1318" height="786" alt="image" src="https://github.com/user-attachments/assets/49af0382-0437-47c9-9f57-b65402e2ead6" />
-<img width="1318" height="786" alt="image" src="https://github.com/user-attachments/assets/49af0382-0437-47c9-9f57-b65402e2ead6" />
+
 
 
 
